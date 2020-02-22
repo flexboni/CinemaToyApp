@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="useLockScreen"
+        android:title="@string/switch_preference_title" />
+
+    <MultiSelectListPreference
+        android:defaultValue="@array/category"
+        android:entries="@array/category"
+        android:entryValues="@array/category"
+        android:key="category"
+        android:summary="@string/edit_text_preference_summary"
+        android:title="@string/edit_text_preference_title" />
+</PreferenceScreen>

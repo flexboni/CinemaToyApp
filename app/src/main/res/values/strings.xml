@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">QuizLocker</string>
+
+    <string name="init_button">정답, 오답 횟수 초기화</string>
+    <string name="use_data_sync">데이터 동기화 사용</string>
+    <string name="use_data_sync_summary">클라우드 저장소와 데이터를 동기화 합니다.</string>
+    <string name="edit_text_preference_default_value">홍길동</string>
+    <string name="edit_text_preference_title">퀴즈 종류</string>
+    <string name="edit_text_preference_summary">일반상식, 역사, 수도</string>
+    <string name="switch_preference_title">퀴즈 잠금화면 사용</string>
+    <string name="switch_preference_summary">여러가지 유용한 알림을 받아보세요</string>
+
+    <string-array name="category">
+        <item>일반상식</item>
+        <item>역사</item>
+        <item>수도</item>
+    </string-array>
 </resources>
