@@ -1,31 +1,212 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/background_light"
     tools:context=".MainActivity">
 
-    <FrameLayout
-        android:id="@+id/preferenceContent"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/initButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/initButton"
-        android:text="@string/init_button"
-        android:layout_width="0dp"
+    <!-- 전체 영역 -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- 영화 정보 영역 -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <!-- 포스터 이미지 -->
+            <ImageView
+                android:id="@+id/posterImage"
+                android:layout_width="150dp"
+                android:layout_height="221dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/poster_sample"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- 영화명 -->
+            <TextView
+                android:id="@+id/movieTitleLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxEms="7"
+                android:maxLines="1"
+                android:text="@string/movie_title_default"
+                android:textColor="@android:color/white"
+                android:textSize="21sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/ageLimitLabel"
+                app:layout_constraintEnd_toStartOf="@+id/ageLimitLabel"
+                app:layout_constraintStart_toStartOf="@+id/releaseDateLabel"
+                app:layout_constraintTop_toTopOf="@+id/ageLimitLabel" />
+
+            <!-- 연령제한 -->
+            <TextView
+                android:id="@+id/ageLimitLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/shape_age_limit_background"
+                android:gravity="center"
+                android:text="@string/age_limit_default"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/releaseDateLabel"
+                app:layout_constraintStart_toEndOf="@+id/movieTitleLabel" />
+
+            <!-- 개봉일 -->
+            <TextView
+                android:id="@+id/releaseDateLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:text="@string/release_date_default"
+                android:textColor="@color/silverChalice"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/posterImage"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/posterImage"
+                app:layout_constraintTop_toTopOf="@+id/posterImage" />
+
+            <!-- 장르/상영시간 -->
+            <TextView
+                android:id="@+id/genreAndShowTimeLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/genre_and_show_time_default"
+                android:textColor="@color/silverChalice"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/releaseDateLabel"
+                app:layout_constraintTop_toBottomOf="@+id/releaseDateLabel" />
+
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/posterImage"
+                app:layout_constraintStart_toStartOf="@+id/genreAndShowTimeLabel">
+
+                <!-- 좋아요 버튼-->
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/likeRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:button="@drawable/ic_like_thumb_off"
+                    android:text="@string/like_count_default"
+                    android:textSize="16sp" />
+
+                <!-- 싫어요 버튼-->
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/unlikeRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:button="@drawable/ic_unlike_thumb_off"
+                    android:text="@string/like_count_default"
+                    android:textSize="16sp" />
+
+            </com.google.android.material.button.MaterialButtonToggleGroup>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- 예매율/평점/누적관객수 영역 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:orientation="horizontal">
+            <!-- 예매율 영역 -->
+            <LinearLayout style="@style/ThreeContentLayout">
+                <!-- 타이틀 -->
+                <TextView
+                    style="@style/ThreeContentTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/movie_title_default"
+                    android:textColor="@color/boulder" />
+                <!-- 값 -->
+                <TextView
+                    style="@style/ThreeContentMessage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reservation_person_default"
+                    android:textColor="@color/boulder"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <view
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/boulder" />
+
+            <!-- 평점 영역 -->
+            <LinearLayout style="@style/ThreeContentLayout">
+                <!-- 타이틀 -->
+                <TextView
+                    style="@style/ThreeContentTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/grade_title"
+                    android:textColor="@color/boulder" />
+                <!-- 값 영역 -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+                    <!-- 별 -->
+                    <me.zhanghai.android.materialratingbar.MaterialRatingBar
+                        android:id="@+id/ratingBar"
+                        android:layout_width="80dp"
+                        android:layout_height="20dp"
+                        android:rating="5"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/gradeRatingLabel"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                    <!-- 값 -->
+                    <TextView
+                        android:id="@+id/gradeRatingLabel"
+                        style="@style/ThreeContentMessage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/grade_default"
+                        android:textColor="@color/boulder"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@+id/ratingBar"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/ratingBar"
+                        app:layout_constraintTop_toTopOf="@+id/ratingBar" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+
+            <view
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@color/boulder" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

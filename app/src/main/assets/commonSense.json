@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "question": "가나다라\n다음은?",
+    "choice1": "마",
+    "choice2": "바",
+    "answer": "마"
+  },
+  {
+    "id": 2,
+    "question": "젓가락의\n갯수는?",
+    "choice1": "100",
+    "choice2": "2",
+    "answer": "2"
+  },
+  {
+    "id": 3,
+    "question": "손가락의\n갯수는?",
+    "choice1": "5",
+    "choice2": "50000",
+    "answer": "5"
+  }
+]

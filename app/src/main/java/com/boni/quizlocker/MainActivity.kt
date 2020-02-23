@@ -1,9 +1,14 @@
 package com.boni.quizlocker
 
+import android.content.Context
+import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.preference.MultiSelectListPreference
 import android.preference.PreferenceFragment
+import android.preference.SwitchPreference
+import com.boni.quizlocker.Service.LockScreenService
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -15,7 +20,20 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // preferenceContent FrameLayout 영역을 PreferenceFragment 로 교체
-        fragmentManager.beginTransaction().replace(R.id.preferenceContent, fragment).commit()
+//        fragmentManager.beginTransaction().replace(R.id.preferenceContent, fragment).commit()
+
+//        initButton.setOnClickListener { initAnswerCount() }
+    }
+
+    private fun initAnswerCount() {
+        // 정답 횟수 설정 정보를 가져온다.
+        val correctAnswerPref = getSharedPreferences("correctAnswer", Context.MODE_PRIVATE)
+        // 오답 횟수 설정 정보를 가져온다.
+        val wrongAnswerPref = getSharedPreferences("wrongAnswer", Context.MODE_PRIVATE)
+
+        // 초기화
+        correctAnswerPref.edit().clear().apply()
+        wrongAnswerPref.edit().clear().apply()
     }
 
     class MyPreferenceFragment : PreferenceFragment() {
@@ -39,6 +57,45 @@ class MainActivity : AppCompatActivity() {
                 categoryPref.summary = newValue.joinToString(", ")
 
                 true
+            }
+
+            // 퀴즈 잠금화면 사용 위치 객체 가져옴
+            val useLockScreenPref = findPreference("useLockScreen") as SwitchPreference
+            // 클릭 됐을 때의 이벤트 리스너 코드 작성
+            useLockScreenPref.setOnPreferenceClickListener {
+                when {
+                    // 퀴즈 잠금화면 사용이 체크된 경우 LockScreeServcie 실행
+                    useLockScreenPref.isChecked -> {
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                            activity.startForegroundService(
+                                Intent(
+                                    activity,
+                                    LockScreenService::class.java
+                                )
+                            )
+                        } else {
+                            activity.startService(Intent(activity, LockScreenService::class.java))
+                        }
+                    }
+                    // 퀴즈 잠금화면 사용이 체크 해제된 경우 LockScreenService 중단
+                    else -> activity.stopService(Intent(activity, LockScreenService::class.java))
+                }
+                true
+            }
+
+
+            // 앱이 시작 됐을 때 이미 퀴즈 잠금 화면 사용이 체크 돼 있으면 서비스 실행
+            if (useLockScreenPref.isChecked) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    activity.startForegroundService(
+                        Intent(
+                            activity,
+                            LockScreenService::class.java
+                        )
+                    )
+                } else {
+                    activity.startService(Intent(activity, LockScreenService::class.java))
+                }
             }
         }
     }

@@ -3,7 +3,12 @@
     package="com.boni.quizlocker">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 부팅이 완료될 때 브로드캐스트 수신을 위한 권한 요청 -->
+    <!-- 부팅이 완료될 때 브로드캐스트 수신을 위한 권한 요청 -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- Foreground 서비스 실행 권한 -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <!-- 진동 서비스 사용 권한 요청 -->
+    <uses-permission android:name="android.permission.VIBRATE"/>
 
     <application
         android:allowBackup="true"
@@ -26,6 +31,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    </application>
 
+        <!-- 암시적 인텐트로 실행되는 브로드캐스트 리시버 등록 -->
+        <receiver
+            android:name="com.boni.quizlocker.Receiver.BootCompleteReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+    </application>
 </manifest>

@@ -1,14 +1,30 @@
 <resources>
-    <string name="app_name">QuizLocker</string>
+    <string name="app_name">씨네마천국</string>
+
+    <string name="release_date_default">2020.02.23 개봉</string>
+    <string name="movie_title_default">이거슨 영화 제목</string>
+    <string name="age_limit_default">15</string>
+    <string name="genre_and_show_time_default">로멘스 / 160분</string>
+    <string name="like_count_default">\t0</string>
+    <string name="unlike_count_default">\t0</string>
+
+    <string name="reservation_rate_title">예매율</string>
+    <string name="reservation_rate_default">1위\t10.0%</string>
+
+    <string name="grade_title">평점</string>
+    <string name="grade_default">10.0</string>
+
+    <string name="reservation_person_title">누적관객수</string>
+    <string name="reservation_person_default">100,000,000명</string>
 
     <string name="init_button">정답, 오답 횟수 초기화</string>
     <string name="use_data_sync">데이터 동기화 사용</string>
     <string name="use_data_sync_summary">클라우드 저장소와 데이터를 동기화 합니다.</string>
-    <string name="edit_text_preference_default_value">홍길동</string>
     <string name="edit_text_preference_title">퀴즈 종류</string>
     <string name="edit_text_preference_summary">일반상식, 역사, 수도</string>
     <string name="switch_preference_title">퀴즈 잠금화면 사용</string>
     <string name="switch_preference_summary">여러가지 유용한 알림을 받아보세요</string>
+    <string name="free_image_copyright">https://www.flaticon.com/free-icon/thumbs-up-hand-symbol_25423</string>
 
     <string-array name="category">
         <item>일반상식</item>

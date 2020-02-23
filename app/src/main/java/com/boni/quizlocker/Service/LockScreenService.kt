@@ -1,6 +1,6 @@
 package com.boni.quizlocker.Service
 
-import Receiver.ScreenOffReceiver
+import com.boni.quizlocker.Receiver.ScreenOffReceiver
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
