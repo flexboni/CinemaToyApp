@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#e64a19</color>
+    <color name="colorPrimary">#E64A19</color>
     <color name="colorPrimaryDark">#ac0800</color>
     <color name="colorAccent">#64dd17</color>
 
@@ -8,5 +8,6 @@
     <color name="silverChalice">#a0a0a0</color>
     <color name="boulder">#797979</color>
     <color name="silver">#EDEDED</color>
+    <color name="alto">#E0E0E0</color>
 
 </resources>

@@ -8,14 +8,39 @@
     <string name="like_count_default">\t0</string>
     <string name="unlike_count_default">\t0</string>
 
+    <!-- 예매율 -->
     <string name="reservation_rate_title">예매율</string>
     <string name="reservation_rate_default">1위\t10.0%</string>
-
+    <!-- 평점 -->
     <string name="grade_title">평점</string>
     <string name="grade_default">10.0</string>
-
+    <!-- 누적관객수 -->
     <string name="reservation_person_title">누적관객수</string>
     <string name="reservation_person_default">100,000,000명</string>
+    <!-- 줄거리 -->
+    <string name="summary_title">줄거리</string>
+    <string name="summary_sample_data">군도, 백성을 구하라\n양반과 탐관오리들의 착취가 극에 달했던 조선 철종 13년,
+        \n힘 없는 백성의 편이 되어 세상을 바로 잡고자 하는 의적떼인 군도, 지리산 추설이 있었다.
+        \n\n쌍칼 도치 vs 백성의 적 조윤\n잦은 자연재해, 기근과 관의 횡포까지 겹쳐 백성들의 삶이
+    날로 피폐해 져 가는 사이, 나주 대부호의 서자로 조선 최고의 무관 출신인 조윤은 극악한 수법으로
+    양민들을 수탈</string>
+    <!-- 감독 -->
+    <string name="director_title">감독</string>
+    <string name="director_value">윤종빈</string>
+    <!-- 출연 -->
+    <string name="appearance_actor_actress_title">출연</string>
+    <string name="appearance_actor_actress_value">하동우(도치), 강동원(조윤)</string>
+    <!-- 한줄평 -->
+    <string name="comment_title">한줄평</string>
+    <string name="comment_write">작성하기</string>
+    <string name="comment_recommend">추천 0</string>
+    <string name="comment_notify">신고하기</string>
+    <string name="comment_show_all">모두 보기</string>
+    <string name="comment_id_1">kym71**</string>
+    <string name="comment_time_1">10분전</string>
+    <string name="comment_value_1">적당히 재밌다. 오랜만에 잠 안오는 영화 봤네요.</string>
+
+
 
     <string name="init_button">정답, 오답 횟수 초기화</string>
     <string name="use_data_sync">데이터 동기화 사용</string>

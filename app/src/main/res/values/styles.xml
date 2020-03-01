@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.MaterialComponents">
+    <style name="AppTheme" parent="Theme.MaterialComponents.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -49,8 +49,53 @@
     <style name="ThreeContentMessage">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginBottom">8dp</item>
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- 좋아요/싫어요 버튼 -->
+    <style name="LikeUnlikeButton" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="icon">@drawable/ic_like_thumb_off</item>
+        <item name="android:text">@string/like_count_default</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/likeButton</item>
+        <item name="iconGravity">textStart</item>
+        <item name="iconPadding">@dimen/space_0dp</item>
+        <item name="iconTint">@android:color/white</item>
+    </style>
+
+    <!-- 카드뷰 영역 -->
+    <style name="CardViewArea" parent="Widget.MaterialComponents.CardView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/space_15dp</item>
+    </style>
+
+    <!-- 서브 영역 -->
+    <style name="SubEntireArea" >
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@android:color/white</item>
+        <item name="android:paddingStart">@dimen/space_8dp</item>
+        <item name="android:paddingEnd">@dimen/space_8dp</item>
+        <item name="android:paddingTop">@dimen/space_15dp</item>
+    </style>
+
+    <!-- 컨텐츠 타이틀 -->
+    <style name="ContentsTitleText" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">@dimen/text_18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <!-- 컨텐츠 내용 -->
+    <style name="ContentsValueText" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">@dimen/text_14sp</item>
     </style>
 
 
